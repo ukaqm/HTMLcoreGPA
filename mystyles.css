@@ -1,0 +1,66 @@
+h1 {
+  font-size: x-large;
+  text-align: center;
+}
+
+fieldset {
+  width: 25%;
+  margin: auto;
+  border: solid px;
+}
+
+.special {
+  border: solid 2px;
+  font-weight: bold;
+  height: 20%;
+}
+
+div {
+  font-weight: 100;
+}
+
+select {
+  font-size: 14px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+option {
+  font-size: 14px;
+  background-color: #fff;
+  color: #333;
+}
+
+select:hover,
+select:focus {
+  outline: none;
+  border-color: #5856d2;
+  box-shadow: 0 0 5px #5856d2;
+}
+
+select option:checked {
+  background-color: #5856d2;
+  color: #fff;
+}
+
+button {
+  background-color: #5856d2; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #08064f; /* Dark green */
+}
+
+label {
+  font-weight: 100;
+}

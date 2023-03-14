@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="mystyles.css">
+  <title>Document</title>
+  <script>
+    //This function is called when the user clicks on the calcGPA button
+    function calcGPA() {
+      //Extract the values from the HTML inputs by their assigned id and assigns them to variables
+      //The value extracted is converted from a string to a float/decimal
+      fIS201 = parseFloat(document.getElementById("is201Grade").value);
+      fACC200 = parseFloat(document.getElementById("acc200Grade").value);
+      fIS303 = parseFloat(document.getElementById("is303Grade").value);
+      fOverallGPA = parseFloat(document.getElementById("overallGPA").value);
+      fLast30GPA = parseFloat(document.getElementById("last30GPA").value);
+      fEssay = parseInt(document.getElementById("essay").value);
+
+      //calculates new gpa
+      fFinalGPA = ((fIS201 * .3) + (fIS303 * .3) + (fACC200 * .05) + (fOverallGPA * .12) + (fLast30GPA * .18) + (fEssay * .05)).toFixed(2);
+      //Display the calculated GPA to the HTML label named "coreGPA"
+      document.getElementById("coreGPA").innerHTML = "Your core GPA is " + fFinalGPA + ".";
+      // Display a message with the user's chances based on their final GPA like we did in the Core GPA assignment
+      if (fFinalGPA >= 3.8) {
+        sOutput = "Chances are very good."
+      }
+      else if (fFinalGPA >= 3.5) {
+        sOutput = "Chances are good."
+      }
+      else if (fFinalGPA >= 3.2) {
+        sOutput = "Chances are so-so."
+      }
+      else {
+        sOutput = "You might want to retake IS 201 and/or IS 303."
+      }
+      document.getElementById("myOutput").innerHTML = sOutput
+    }
+  </script>
+</head>
+
+<body>
+  <!--Header that explains the page-->
+  <h1>
+    Calculate your chances for admission to the Information Systems Major
+  </h1>
+  <!--Fieldset and legend for all the user inputs-->
+  <fieldset style="border: solid 2px; font-weight: bold;">
+    <legend>GPA Information</legend>
+    <form>
+      <!-- Overall GPA input with label -->
+      <label for="overallGPA">Enter overall GPA:</label>
+      <input type="number" step="0.01" id="overallGPA" name="overallGPA">
+      <br>
+      <br>
+      <!-- Last 30 Credits GPA input with label -->
+      <label for="last30GPA">Enter last 30 Credits GPA:</label>
+      <input type="number" step="0.01" id="last30GPA" name="last30GPA">
+      <br>
+      <br>
+      <!-- Accounting 200 Grade input with label -->
+      <label for="acc200Grade">Enter Accounting 200 Grade:</label>
+      <select id="acc200Grade" name="acc200Grade">
+        <option style="display:none"></option>
+        <option value="4.0">A</option>
+        <option value="3.7">A-</option>
+        <option value="3.3">B+</option>
+        <option value="3.0">B</option>
+        <option value="2.7">B-</option>
+        <option value="2.3">C+</option>
+        <option value="2.0">C</option>
+        <option value="1.7">C-</option>
+        <option value="1.3">D+</option>
+        <option value="1.0">D</option>
+        <option value="0.7">D-</option>
+        <option value="0">F</option>
+      </select>
+      <br>
+      <br>
+      <!-- is201 Grade input with label -->
+      <label for="is201Grade">Enter IS 201 Grade:</label>
+      <select id="is201Grade" name="is201Grade">
+        <option style="display:none"></option>
+        <option value="4.0">A</option>
+        <option value="3.7">A-</option>
+        <option value="3.3">B+</option>
+        <option value="3.0">B</option>
+        <option value="2.7">B-</option>
+        <option value="2.3">C+</option>
+        <option value="2.0">C</option>
+        <option value="1.7">C-</option>
+        <option value="1.3">D+</option>
+        <option value="1.0">D</option>
+        <option value="0.7">D-</option>
+        <option value="0">F</option>
+      </select>
+      <br>
+      <br>
+      <!-- is303 Grade input with label -->
+      <label for="is303Grade">Enter IS 303 Grade:</label>
+      <select id="is303Grade" name="is303Grade">
+        <option style="display:none"></option>
+        <option value="4.0">A</option>
+        <option value="3.7">A-</option>
+        <option value="3.3">B+</option>
+        <option value="3.0">B</option>
+        <option value="2.7">B-</option>
+        <option value="2.3">C+</option>
+        <option value="2.0">C</option>
+        <option value="1.7">C-</option>
+        <option value="1.3">D+</option>
+        <option value="1.0">D</option>
+        <option value="0.7">D-</option>
+        <option value="0">F</option>
+      </select>
+      <br>
+      <br>
+      <!-- Essay input with label -->
+      <label for="essay">Enter Essay Score:</label>
+      <select id="essay" name="essay">
+        <option style="display:none"></option>
+        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+        <option value="0">0</option>
+      </select>
+      <br>
+      <br>
+      <!--Button that runs the function when clicked-->
+      <button type="button" onclick="calcGPA()">Calculate GPA</button>
+    </form>
+  </fieldset>
+  <br>
+  <!--Fieldset and legend that displays the GPA and message-->
+  <fieldset style="border: solid 2px; font-weight: bold; height: 50px;">
+    <legend>Total Applying GPA</legend>
+    <label id="coreGPA"></label>
+    <label id="myOutput"></label>
+  </fieldset>
+</body>
+
+</html>
